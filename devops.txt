@@ -1,0 +1,27 @@
+Important points which should be remember :
+
+What is Container orchestration.
+What is Arrora in AWS
+What is Kafka.
+what is load balancer and if i want to add LB on EC2 machine so how can i ?.
+On AWS what is user interface and practical implementation with example.
+What is VPC and how it is related to EC2.
+What is redshift in AWS and why we use .
+Nat Gatway in AWS and how it is use in lambda 
+what is k8s.
+what is ec2 and how it is related to k8s.
+what is auto scaling and auto deployment process on react node project and how it is done by k8s.
+What is control panel and worker node in k8s.
+Using of kubectl and kubelet.
+how to debug auto deployment issue .
+What is ECR and how it is related to K8s.
+What is Helm how can clone mongo database using helm in k8s pod .
+In k8 what is namespace , pod , development and node .
+What is Kafka and how it is related to k8s.
+How can we create k8s cluster in local environment .
+Horizontal Pod Autoscaler and Vertical Pod Autoscaler in k8s. 
+k8s commands . 
+What is terraform and how can i create EC2 machine using terraform .
+What is terragrunt and how it is related to terraform .
+What is helm ingress.
+How we reduce cost on AWS infra.

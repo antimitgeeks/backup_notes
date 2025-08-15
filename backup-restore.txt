@@ -1,0 +1,34 @@
+Backup for account-editor-app-dev
+
+1. Get all pods and other things in namespace 
+
+
+kubectl get all -n account-editor-app-dev
+
+2. scale up restore pod
+
+kubectl scale deployment mongodb-restore-deployment --replicas=1 -n account-editor-app-dev
+
+
+3. get pods and check restore pod sacled up or not 
+
+kubectl get pods -n account-editor-app-dev
+
+4. enter in current scale restore
+
+kubectl exec -it pod/mongodb-restore-deployment-7d854f9dc5-ff7x5 -n account-editor-app-dev -- sh
+
+5. select date which date you want to backup and run this command this command will download backup zip file in your current directory
+
+kubectl -n account-editor-app-dev cp pod/mongodb-restore-deployment-7d854f9dc5-ff7x5:/backup/mongodump-2025-02-10-00-00.gz  mongo.tar.gz
+
+kubectl exec -n account-editor-app -it mongodb-restore-deployment-7d854f9dc5-ff7x5 -- ls /backup/
+
+
+Restore Backup in local database 
+
+follow this blog http://stackoverflow.com/questions/18931668/how-to-restore-the-dump-into-your-running-mongodb
+
+https://www.mongodb.com/try/download/database-tools
+
+mongorestore --archive="C:\Users\Itgeeks\Downloads\mongo\mongo\mongo"

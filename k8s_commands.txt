@@ -1,0 +1,108 @@
+aws eks update-kubeconfig --region ap-south-1  --name itgeeks-project-cluster
+
+
+kubectl get ing -n nginx-ingress
+
+kubectl get all
+
+kubectl get all -n nginx-ingress
+
+kubectl get ns
+
+kubectl get ing -n account-editor-app
+
+This command retrieves all Kubernetes resources in the account-editor-app namespace	===>	kubectl get all -n account-editor-app 
+
+helm upgrade --install account-editor ./ --set image.repository=600627336164.dkr.ecr.ap-south-1.amazonaws.com/account-editor --set image.tag=2024-12-04-10-09-44 --namespace account-editor-app --create-namespace
+
+
+This command lists all the available contexts configured in your Kubernetes kubeconfig file	===>	kubectl config get-contexts
+
+This command lists all the pods running across all namespaces in a Kubernetes cluster	===>	kubectl get pods --all-namespaces
+
+list all namespaces in a Kubernetes cluster   ===> kubectl get ns -A
+
+listing S3 buckets	====>	aws s3 ls
+
+list of all k8s clusture in aws ===>	aws eks list-clusters --region ap-south-1
+
+
+view logs	===>	 kubectl logs -f pod/account-editor-account-editor-helm-ccfbdd5f5-cv5dl -n account-editor-app
+
+view file in pod ===> kubectl exec -it pod/account-editor-account-editor-helm-7f769c6d7b-m5zl7 -n account-editor-app -- /bin/sh
+
+change k8s environment ==> aws eks update-kubeconfig --region <your-region> --name <your-cluster-name>
+
+
+check status of k8s clusture ==> kubetl config view
+
+get namespace pvc ===> kubectl get pvc -n mobilify-dev
+
+
+
+
+
+
+################################################ want to check backups in namespace #####################
+deployment.apps/mongodb-restore-deployment created
+kubectl get all -n account-editor-app-dev
+kubectl exec -it pod/mongodb-restore-deployment-66f87b448b-2kx46 -n account-editor-app-dev -- sh
+/backup # ped
+sh: ped: not found
+/backup # pwd
+/backup
+/backup # cd ..
+/ # exit
+kubectl.exe get pvc -n account-editor-app-dev
+
+
+
+backup database ===> 1. 
+kubectl.exe -n account-editor-app-dev cp pod/mongodb-restore-deployment-66f87b448b-2kx46:/backup/mongodump-2025-02-02-00-00.gz  mongo.tar.gz
+2. kubectl.exe -n account-editor-app cp mongodb-restore-deployment-595dc9fc64-s2xcs:/backup/mongodump-2025-01-03-06-19.gz  mongo2.tar.gz
+
+get all namespace ==> kubectl.exe get all -n account-editor-app 
+
+scale up ===> kubectl.exe scale deployment/mongodb-restore-deployment --replicas=1 -n account-editor-app-dev
+
+scale down ===> kubectl.exe scale deployment/mongodb-restore-deployment --replicas=0 -n account-editor-app-dev
+
+
+enter in pod ===> kubectl exec -it  mongodb-restore-deployment-595dc9fc64-s2xcs -n account-editor-app -- sh
+
+
+apply deployment  ===> kubectl apply -f test.yaml
+
+
+get namespace secrets ===> kubectl  get secrets shopify-secrets -oyaml -n mobilify-dev 
+
+
+
+
+
+deploy new app in eks 
+
+-1 mongodb 
+
+	to access bitnami in mashin : helm repo add bitnami https://charts.bitnami.com/bitnami
+		
+	pull mongodb : helm pull bitnami/mongodb --untar
+
+	copy past same velues file which is already update in account-editor-app 
+	
+	install helm command to install mongodb with given namespace : helm install mobilify-db-dev ./ -n mobilify-dev
+
+-2 workflows 
+
+		create .GitHub/workflows/docker-ecr-push-development.yml file and copy past same content which is in account editor app
+		create new ecr repository in AWS
+		change ecr in workflowfile 
+		adjust names accordingly 
+		
+-3 create helm 
+
+
+		create helm in root of project : helm create mobilify-helm
+		change value.yaml file according project change ragistory / port in service and livenessProbe  
+		 ingeers change host also
+		add scrates object copy past from account-editor and change values according project in ENV
