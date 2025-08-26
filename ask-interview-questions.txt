@@ -25,38 +25,24 @@ Your React build size is too large — what steps will you take to reduce it?
 
 node 
 
-What is the difference between process.nextTick(), setImmediate(), and setTimeout()
-Explain the Node.js event loop. How does it handle asynchronous operations?
-How does Node handle multiple requests if it's single-threaded?
-What are streams in Node.js? What are their types and use cases?
-What is the difference between Promise.all() and Promise.allSettled()?
-How would you structure a scalable Node.js application?
-What is clustering in Node.js and how does it improve performance?
-Difference between monolithic and microservices architecture?
-How do you prevent SQL Injection and XSS in Node.js?
-What are CORS and how do you configure them in Node.js?
-How do you handle rate limiting in APIs to prevent abuse?
-Difference between CommonJS and ES Modules in Node.js?
-What is the role of package-lock.json and node_modules?
-What is the difference between a devDependency and a dependency?
-How do you handle transactions in Node.js with relational databases?
-What are ORMs? Compare Sequelize and Prisma.
-What tools do you use for testing Node.js apps? (e.g., Jest, Mocha)
-How do you mock dependencies in a Node.js unit test?
-How do you profile and improve performance in Node.js?
-What is garbage collection in Node.js? When is it triggered?
-When should you use child_process or worker_threads in Node.js?
-How would you deploy a Node.js app to production (with PM2, Docker, etc.)?
-How do you ensure high availability and zero downtime for your Node.js app
-How do you use message queues (e.g., RabbitMQ, Kafka) in a Node.js app?
-What’s the difference between REST and GraphQL and when to use each?
-Explain a scenario where Node.js was not the best choice — what did you do?
+What is the difference between setImmediate() and process.nextTick() in Node.js?
+How is require different from import in Node.js?
+Why is Node.js considered single-threaded if it uses libuv’s thread pool? 
+Explain the phases of the Node.js event loop.
+How does streams backpressure work in Node.js?
+What’s the difference between Cluster and Worker Threads? When would you use each?
+Suppose you have a CPU-heavy operation (e.g., hashing 1000 passwords). How would you implement this in Node.js without blocking requests?
+What’s the difference between event-driven concurrency (Node.js) and multi-threaded concurrency (Java/Go)?
+Imagine your production Node.js service shows high event loop lag. How would you detect, debug, and fix it?
 
-clerk
-
-
-
-
+How would you use async_hooks or perf_hooks to measure async resource performance?
+Explain stateless vs. stateful design in Node.js and why it matters for scaling.
+What is EventEmitter
+How do you prevent DoS attacks caused by blocking code?
+How would you secure an Express/Remix/Node.js API against:SQL Injection / NoSQL Injection,XSS,
+How would you build a gRPC service in Node.js? When is gRPC better than REST?CSRF
+How would you implement a rate limiter in Node.js?
+How do you debug memory leaks in Node.js
 
 DSA   :
 
